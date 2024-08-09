@@ -74,3 +74,19 @@ lexik_jwt_authentication:
     public_key_path:  '%kernel.root_dir%/../var/jwt/public.pem'
     pass_phrase:      'daniel'
     token_ttl:        3600
+
+nelmio_cors:
+    defaults:
+        allow_origin: ['http://localhost:3000']
+        allow_credentials: true
+        allow_headers: ['Content-Type', 'Authorization']
+        allow_methods: ['GET', 'OPTIONS', 'POST', 'PUT', 'DELETE']
+        expose_headers: []
+        max_age: 3600
+    paths:
+        '^/api/':
+            allow_origin: ['http://localhost:3000']
+            allow_credentials: true
+            allow_headers: ['Content-Type', 'Authorization']
+            allow_methods: ['GET', 'OPTIONS', 'POST', 'PUT', 'DELETE']
+            max_age: 3600
