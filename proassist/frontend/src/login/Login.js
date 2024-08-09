@@ -36,7 +36,7 @@ class Login extends Component {
       const data = await response.json();
       console.log('Logged in:', data);
       localStorage.setItem('token', data.token);
-      this.setState({ isLoggedIn: true });
+      this.setState({ isLoggedIn: true, error: '' });
     } else {
       this.setState({ error: 'Logowanie nie powiodło się. Sprawdź swoje dane uwierzytelniające.' });
     }
@@ -86,7 +86,7 @@ class Login extends Component {
               required
             />
           </div>
-          {error && <p style={{ color: 'red' }}>{error}</p>}
+          {error && <p>{error}</p>}
           <button type="submit">Login</button>
         </form>
       </div>
